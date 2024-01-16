@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Infomation Display</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body style="background-color:#475d62">
+        <nav class="navbar navbar-lg navbar-custom">
+            <ul>
+                <a class="navbar-brand " href="/">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/show">Show Record</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            </ul>
+        </nav>
+        <div class="center">
+            <h2>Employee Data</h2>
+            <table class="table table-striped" style="width:50%">
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                {% for emp in empdata %}
+                <tr class="table-striped table">
+                    <td style="color:white">{{emp.ID}}</td>
+                    <td style="color:white">{{emp.Name}}</td>
+                    <td style="color:white">{{emp.Department}}</td>
+                    <td style="color:white"><a href="/editemp?id={{emp.ID}}">Edit</td>
+                    <td style="color:white"><a href="/deleteemp?id={{emp.ID}}">Delete</td>
+                </tr>
+                {% endfor %}
+                </thead>
+            </table>
+        </div>
+        <div class="center">
+            <h2>Department Data</h2>
+            <table class="table table-striped"  style="width:50%">
+                <thead>
+                    <th>ID</th>
+                    <th>Department Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                {% for dept in deptdata %}
+                <tr class="table-striped table">
+                    <td style="color:white">{{dept.ID}}</td>
+                    <td style="color:white">{{dept.Name}}</td>
+                    <td style="color:white"><a href="/editdept?id={{dept.ID}}">Edit</td>
+                    <td style="color:white"><a href="/deletedept?id={{dept.ID}}">Delete</td>
+                </tr>
+                {% endfor %}
+                </thead>
+            </table>
+        </div>
+    </body>
+</html>
